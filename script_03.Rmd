@@ -119,12 +119,27 @@ sep2 <- sep %>%
   
 full_join <- 
   rbind(sep1, sep2)
+
+full_join %>%
+  ggplot(mapping = aes(x = reorder(title.x, -difference), y = difference, 
+                       fill = ifelse(difference > 0, "red", "dodgerblue"))) +
+  geom_col() +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.position = "none") +
+  labs(
+    title = "Changes in Course Enrollment (As of 9/22/2020)",
+    x = "Course",
+    y = "Change in Enrollment")
 ```
 
 
 ## Scene 4
 
 **Prompt:**  What might have caused drops in these classes? Assume that one of the causes might have been the amount of work assigned in the first two weeks of class. Create a simplified ideal Preceptor Table (using a spreadsheet of your choice) with no missing data which would allow us to investigate this situation. What data is missing and why? Create an actual Preceptor Table, again using a spreadsheet. How might we investigate the effect of work assigned in the first two weeks? Would the estimated Average Treatment Effect be accurate? Why or why not? Put some bullet points here and be prepared to show your spreadsheet to the class.
+
+```{r}
+
+```
 
 
 ## Scene 5
